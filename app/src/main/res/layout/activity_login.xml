@@ -41,6 +41,13 @@
         android:minHeight="48dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <CheckBox
+        android:id="@+id/checkRemember"
+        android:text="@string/label_checkbox"
+        android:checked="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
     <Button
         android:id="@+id/boton"
         android:layout_width="wrap_content"

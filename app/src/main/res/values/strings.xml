@@ -8,5 +8,6 @@
     <string name="label_button">Validar:</string>
     <string name="message_login_ok">Correcto</string>
     <string name="message_login_ko">No correcto</string>
+    <string name="label_checkbox">Recordarme</string>
 
 </resources>
