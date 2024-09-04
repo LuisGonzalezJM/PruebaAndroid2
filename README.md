@@ -14,3 +14,5 @@ README del proyecto PruebaAndroid2
 - [Ejercicios ut1-ej1](docs/ut1/ut1-ej1.pdf)
 - [Ejercicios ut1-ej2](docs/ut1/ut1-ej2.pdf)
 - [Ejercicios ut1-ej3](docs/ut1/ut1-ej3.pdf)
+
+**Para realizar un pull request**
