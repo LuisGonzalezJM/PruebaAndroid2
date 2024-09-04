@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PruebaAndroid2</string>
+
+    <!-- Login -->
+    <string name="label_login">Identicación de usuarios</string>
+    <string name="label_username">Username:</string>
+    <string name="label_password">Password:</string>
+    <string name="label_button">Validar:</string>
+    <string name="message_login_ok">Correcto</string>
+    <string name="message_login_ko">No correcto</string>
+
 </resources>
