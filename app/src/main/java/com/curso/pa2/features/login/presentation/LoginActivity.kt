@@ -37,6 +37,14 @@ class LoginActivity : AppCompatActivity() {
                 Snackbar.make(findViewById<View>(R.id.main), R.string.message_login_ko, Snackbar.LENGTH_SHORT).show()
             }
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        //
+        loginViewModel.onResumed()?.let {username ->
+            //username (it) es no nulo
+            findViewById<EditText>(R.id.input_username).setText(username)
+        }
     }
 }

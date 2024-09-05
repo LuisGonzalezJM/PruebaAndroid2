@@ -4,6 +4,8 @@ import android.content.Context
 import com.curso.pa2.features.login.data.LoginDataRepository
 import com.curso.pa2.features.login.data.local.LoginXmlLocalDataSource
 import com.curso.pa2.features.login.data.remote.LoginMockRemoteDataSource
+import com.curso.pa2.features.login.domain.DeleteUsernameCaseUse
+import com.curso.pa2.features.login.domain.GetUsernameCaseUse
 import com.curso.pa2.features.login.domain.LoginRepository
 import com.curso.pa2.features.login.domain.SaveUsernameUseCase
 import com.curso.pa2.features.login.domain.SignInUseCase
@@ -12,14 +14,15 @@ import com.curso.pa2.features.login.presentation.LoginViewModel
 class LoginFactory (private val context: Context) {
 
     private val loginMockRemoteDataSource:LoginMockRemoteDataSource = provideLoginMockRemoteDataSource()
-    private val loginDataRepository: LoginRepository = provideLoginDataRepository()
     private val loginXmlLocalDataSource: LoginXmlLocalDataSource = provideLoginXmlLocalDataSource()
-
+    private val loginRepository: LoginRepository = provideLoginDataRepository()
     private val signInUseCase: SignInUseCase = provideSignInUseCase()
     private val saveUsernameUseCase: SaveUsernameUseCase = provideSaveUsernameUseCase()
+    private val deleteUsernameCaseUse: DeleteUsernameCaseUse = provideDeleteUsernameUseCase()
+    private val getUsernameCaseUse: GetUsernameCaseUse = provideGetUsernameCaseUse()
 
     fun provideLoginViewModel() : LoginViewModel {
-        return LoginViewModel(signInUseCase, saveUsernameUseCase)
+        return LoginViewModel(signInUseCase, saveUsernameUseCase, deleteUsernameCaseUse, getUsernameCaseUse)
     }
 
     private fun provideLoginMockRemoteDataSource(): LoginMockRemoteDataSource {
@@ -34,10 +37,16 @@ class LoginFactory (private val context: Context) {
     }
 
     fun provideSaveUsernameUseCase(): SaveUsernameUseCase{
-        return SaveUsernameUseCase(loginDataRepository)
+        return SaveUsernameUseCase(loginRepository)
 
     }
     fun provideSignInUseCase(): SignInUseCase{
-        return SignInUseCase(loginDataRepository)
+        return SignInUseCase(loginRepository)
+    }
+    fun provideDeleteUsernameUseCase(): DeleteUsernameCaseUse{
+        return DeleteUsernameCaseUse(loginRepository)
+    }
+    fun provideGetUsernameCaseUse(): GetUsernameCaseUse{
+        return GetUsernameCaseUse(loginRepository)
     }
 }
